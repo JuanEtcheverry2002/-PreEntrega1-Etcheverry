@@ -1,0 +1,28 @@
+{
+    "zapatos": [
+      {
+        "img": "/Images/nike.jpg",
+        "stock": 5,
+        "title": "Nike",
+        "description": "Zapatos Nike Mercurial",
+        "price": "$200"
+      },
+      {
+        "img": "/Images/adidas.jpg",
+        "stock": 4,
+        "title": "Addidas",
+        "description": "Zapatos Addidas Copa 90",
+        "price": "$160"
+      },
+      {
+        "img": "/Images/puma.jpg",
+        "stock": 3,
+        "title": "Puma",
+        "description": "Zapatos Puma special edition",
+        "price": "$140"
+      }
+    ]
+  }
+
+  
+  
