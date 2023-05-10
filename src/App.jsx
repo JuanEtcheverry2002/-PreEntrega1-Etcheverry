@@ -1,6 +1,6 @@
 import './App.css';
 import ItemListContainer from './Components/ItemListContainer';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { BrowserRouter,Routes,Route,Router } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import ItemDetailContainer from "./Components/ItemDetailContainer";
 
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <Switch>
+     
           <Route exact path="/">
             <ItemListContainer />
           </Route>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/cart">
             <Cart />
           </Route>
-        </Switch>
+     
       </div>
     </Router>
       
