@@ -20,7 +20,7 @@ function App() {
             <ItemDetailContainer />
           </Route>
           <Route path="/cart">
-            <Cart />
+            
           </Route>
      
       </div>
