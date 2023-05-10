@@ -37,5 +37,4 @@ function App() {
  
 }
 export default App; 
-/*<Route path="/category/:categoryId" element={<ItemListContainer />} />       
-      <Route>       </Route>*/
+
