@@ -1,9 +1,9 @@
 import { Item } from "../Item/Item";
 import "./ItemList.css";
-export const ItemList = ({props}) => {
+export const ItemList = ({listaProdu}) => {
   return (
     <div className="item-list">
-      {props.map((producto) => {
+      {listaProdu.map((producto) => {
         return (
           <Item
             key={producto.img}
