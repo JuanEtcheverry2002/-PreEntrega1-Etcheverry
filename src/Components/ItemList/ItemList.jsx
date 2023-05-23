@@ -1,23 +1,27 @@
 import { Item } from "../Item/Item";
 import "./ItemList.css";
 export const ItemList = ({listaProdu}) => {
+  console.log(listaProdu)
   return (
     <div className="item-list">
-      {listaProdu.map((producto) => {
+      {listaProdu?.zapatos?.map((producto,i) => {
+        console.log("prod 1", producto)
         return (
           <Item
-            key={producto.img}
+            key={i}
             img={producto.img}
             stock={producto.stock}
+            title={producto.title}
             description={producto.description}
             price={producto.price}
-            title={producto.title}
+           
           />
         );
       })}
     </div>
   );
 };
+
 
 //Uso ItemList para desestructurar el objeto Item. Importado del componente Item.
 

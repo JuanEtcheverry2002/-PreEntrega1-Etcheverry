@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 import Button from "react-bootstrap/Button";
 import "./ItemCount.css";
 import { useCount } from "./Hook/useCount";
@@ -40,6 +33,7 @@ const ItemCount = ({ stock }) => {
           className="item-count__container-add-cart__btn"
           variant="outline-dark"
           size="sm"
+          //onClick={AddToCart}
         >
           Agregar al carrito
         </Button>

@@ -1,12 +1,24 @@
-const ItemDetail = ({ product }) => {
-    return (
-      <div>
-        <h1>{product.title}</h1>
-        <img src={product.image} alt={product.title} />
-        <p>{product.description}</p>
-        <p>Precio: {product.price}</p>
-      </div>
-    );
-  };
-  
-export default ItemDetail
+import { Item } from "../Item/Item"
+
+const ItemDetail = ({ producto }) => {
+  return (
+    <div className="Item-detail">
+      {producto?.zapatos?.map((producto, i) => {
+        return (
+          <Item
+            key={i}
+            img={producto.img}
+            stock={producto.stock}
+            title={producto.title}
+            description={producto.description}
+            price={producto.price}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+export default ItemDetail;
+
+

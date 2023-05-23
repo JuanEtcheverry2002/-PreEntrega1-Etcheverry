@@ -1,6 +1,7 @@
 {
     "zapatos": [
       {
+        "id": 1,
         "img": "/Images/nike.jpg",
         "stock": 5,
         "title": "Nike",
@@ -8,6 +9,7 @@
         "price": "$200"
       },
       {
+        "id": 2,
         "img": "/Images/adidas.jpg",
         "stock": 4,
         "title": "Addidas",
@@ -15,6 +17,7 @@
         "price": "$160"
       },
       {
+        "id": 3,
         "img": "/Images/puma.jpg",
         "stock": 3,
         "title": "Puma",
@@ -24,5 +27,4 @@
     ]
   }
 
-  
   

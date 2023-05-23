@@ -1,19 +1,35 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch("https://mocki.io/v1/2dfca01a-cc4f-4e4e-b4a9-ee9f7f74f02c")
-      .then((res) => res.json())
-      .then((data) => setProducto(data));
+    const fetchProductos = async () => {
+      try {
+        const response = await fetch("https://mocki.io/v1/2ee74ec5-e493-46cc-bc4b-fe0ffc6dfdde");
+        console.log("response", response);
+
+        const data = await response.json();
+        setProducto(data);
+      } catch (error) {
+        console.log("Error al obtener el detalle de los productos", error);
+      }
+    };
+
+    fetchProductos();
   }, []);
 
+
+    
+ 
   return (
     <div>
-      {producto ? <ItemDetail product={producto} /> : <p>Cargando producto...</p>}
+      {producto ? <ItemDetail producto={producto} /> : <p>Cargando producto...</p>}
     </div>
+    
   );
 };
 
