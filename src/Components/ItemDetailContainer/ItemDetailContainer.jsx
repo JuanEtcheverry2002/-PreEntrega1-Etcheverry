@@ -1,29 +1,34 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getDoc,doc } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig";
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
+  const [loading,setLoading]= useState(true)
+
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        const response = await fetch("https://mocki.io/v1/2ee74ec5-e493-46cc-bc4b-fe0ffc6dfdde");
-        console.log("response", response);
+    setLoading(true)
+      const docRef=doc(db,'items',id)
+      getDoc(docRef)
+        .then(response=>{
+          const data= response.data()
+          const productosAd= {id:response.id,...data}
+          setProducto(productosAd)
 
-        const data = await response.json();
-        setProducto(data);
-      } catch (error) {
-        console.log("Error al obtener el detalle de los productos", error);
-      }
-    };
+        })
+    .catch(error=>{
+      console.log(error)
+    })
+    .finally(()=>{
+      setLoading(false)
+    })
+  
+  },[id])
 
-    fetchProductos();
-  }, []);
-
-
-    
  
   return (
     <div>

@@ -2,8 +2,24 @@ import Button from "react-bootstrap/Button";
 import "./ItemCount.css";
 import { useCount } from "./Hook/useCount";
 
-const ItemCount = ({ stock }) => {
-  const { count, decrement, increment } = useCount(1, 1, stock);
+const ItemCount = ({maxCount,onChangeCount,onClickAddCart,onClickUpdateCart }) => {
+  const { count, decrement, increment } = useCount(1, 1, maxCount);
+
+  const handlerClick=()=>{
+    increment()
+    onChangeCount(count)
+  }
+
+  //TODADVIA NO LO USARE. Voy a ver primero con el add.
+  
+  const handlerUpdateCart=()=>{
+    onClickUpdateCart(count)
+  }
+
+
+  const handlerAddCart=()=>{
+    onClickAddCart(count)
+  }
 
   return (
     <div className="item-count">
@@ -12,10 +28,9 @@ const ItemCount = ({ stock }) => {
           className="item-count__container-button__btn"
           variant="outline-dark"
           size="sm"
-          onClick={increment}
-          disabled={count >= stock}
-        >
-          +
+          onClick={handlerClick}
+        >     +
+        
         </Button>
         <p className="item-count__container__text">{count}</p>
         <Button
@@ -30,13 +45,18 @@ const ItemCount = ({ stock }) => {
       </div>
       <div className="item-count__container-add-cart">
         <Button
+          onClick={handlerAddCart}
           className="item-count__container-add-cart__btn"
           variant="outline-dark"
           size="sm"
-          //onClick={AddToCart}
         >
           Agregar al carrito
         </Button>
+
+
+
+
+
       </div>
     </div>
   );

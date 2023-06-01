@@ -1,32 +1,74 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
+import{query,where, collection,getDocs}from 'firebase/firestore'
+import { db } from "../../services/firebase/firebaseConfig";
+import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
+  const [loading,setLoading]= useState(true)
+  
+  const categoryId= useParams()
 
   useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        const response = await fetch("https://mocki.io/v1/2ee74ec5-e493-46cc-bc4b-fe0ffc6dfdde");
-        console.log("response", response);
+    setLoading(true)
+    const collectionRef= categoryId
+    ?query(collection(db,'items'))
+    
+    :collection(db,'items')
 
-        const data = await response.json();
-        setProductos(data);
-      } catch (error) {
-        console.log("Error al obtener los productos:", error);
-      }
-    };
+    getDocs(collectionRef) 
+      .then(response=>{
+        const productosAd= response.docs.map(doc=>{
+          const data= doc.data()
+          return{id: doc.id,...data}  
+        })
+        setProductos(productosAd) 
+  })
+  .catch(error=>{
+    console.log(error)
+  })
+  .finally(()=>{
+    setLoading(false)
+  })
 
-    fetchProductos();
-  }, []);
+},[])
+
 
   return (
+    
     <div>
       <h1>Lista de Productos</h1>
       <ItemList listaProdu={productos} />
+      
     </div>
   );
 };
 
 export default ItemListContainer;
+
+
+
+
+
+
+/*
+const getListItem = () => {
+    getCollection("items").then((result) => {
+      console.log(result);
+      setProductos(result);
+
+
+        useEffect(() => {
+    getListItem();
+  }, []);
+
+   return product.length > 0 ? (
+    <ItemList listaProdu={productos} />
+   }
+*/
+
+
+// con esto vamos adaptar la respuesta que recibimos desde firestore a nuestra applicacion. Por ejemplo id.
+//una vez que la adptamos la guardamos en nuestro estado.

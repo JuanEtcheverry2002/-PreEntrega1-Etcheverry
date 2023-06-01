@@ -4,16 +4,16 @@ export const ItemList = ({listaProdu}) => {
   console.log(listaProdu)
   return (
     <div className="item-list">
-      {listaProdu?.zapatos?.map((producto,i) => {
-        console.log("prod 1", producto)
+      {listaProdu?.map((productos,i) => {
+        console.log("prod 1", productos)
         return (
           <Item
             key={i}
-            img={producto.img}
-            stock={producto.stock}
-            title={producto.title}
-            description={producto.description}
-            price={producto.price}
+            img={productos.img}
+            stock={productos.stock}
+            title={productos.title}
+            description={productos.description}
+            price={productos.price}
            
           />
         );
@@ -21,6 +21,8 @@ export const ItemList = ({listaProdu}) => {
     </div>
   );
 };
+
+
 
 
 //Uso ItemList para desestructurar el objeto Item. Importado del componente Item.
