@@ -10,13 +10,6 @@ const ItemCount = ({maxCount,onChangeCount,onClickAddCart,onClickUpdateCart }) =
     onChangeCount(count)
   }
 
-  //TODADVIA NO LO USARE. Voy a ver primero con el add.
-  
-  const handlerUpdateCart=()=>{
-    onClickUpdateCart(count)
-  }
-
-
   const handlerAddCart=()=>{
     onClickAddCart(count)
   }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
-import{query,where, collection,getDocs}from 'firebase/firestore'
+import{query,collection,getDocs}from 'firebase/firestore'
 import { db } from "../../services/firebase/firebaseConfig";
 import { useParams } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const ItemListContainer = () => {
   
   const categoryId= useParams()
 
-  useEffect(() => {
+  useEffect((categoryId) => {
     setLoading(true)
     const collectionRef= categoryId
     ?query(collection(db,'items'))
@@ -33,7 +33,7 @@ const ItemListContainer = () => {
     setLoading(false)
   })
 
-},[])
+},[categoryId])
 
 
   return (
