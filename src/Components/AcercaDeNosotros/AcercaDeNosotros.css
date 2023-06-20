@@ -1,0 +1,17 @@
+.acerca-de-nosotros {
+    text-align: center;
+    margin: 20px;
+    background-color: lightskyblue;
+  }
+  
+  .acerca-de-nosotros__titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: red;
+  }
+  
+  .acerca-de-nosotros__parrafo {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }

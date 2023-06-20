@@ -39,7 +39,7 @@ const ItemListContainer = () => {
   return (
     
     <div>
-      <h1>Lista de Productos</h1>
+      <h1>Lista de Productos y Catalogo</h1>
       <ItemList listaProdu={productos} />
       
     </div>
@@ -53,22 +53,3 @@ export default ItemListContainer;
 
 
 
-/*
-const getListItem = () => {
-    getCollection("items").then((result) => {
-      console.log(result);
-      setProductos(result);
-
-
-        useEffect(() => {
-    getListItem();
-  }, []);
-
-   return product.length > 0 ? (
-    <ItemList listaProdu={productos} />
-   }
-*/
-
-
-// con esto vamos adaptar la respuesta que recibimos desde firestore a nuestra applicacion. Por ejemplo id.
-//una vez que la adptamos la guardamos en nuestro estado.

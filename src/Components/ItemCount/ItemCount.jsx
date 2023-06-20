@@ -55,4 +55,4 @@ const ItemCount = ({maxCount,onChangeCount,onClickAddCart,onClickUpdateCart }) =
   );
 };
 
-export default ItemCount;
+export default ItemCount

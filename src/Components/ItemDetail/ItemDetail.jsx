@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { createOrder, updateOrder } from "../../services/firebase/firebaseConfig";
 
-const ItemDetail = ({ producto }) => {
+const ItemDetail = ({}) => {
   const { addProduct } = useContext(CartContext);
   const { state } = useLocation();
   const { img, description, stock, price, title, id } = state;
@@ -38,13 +38,21 @@ const ItemDetail = ({ producto }) => {
   return (
     <div className="item-detail">
       <h1>{title}</h1>
+      <h4>Te presentamos el nuevo modelo de: {title}
+      </h4>
+      <h5> Si la imagen no se carga puedes buscar el nombre en internet y te aparecera el modelo que vendemos</h5>
       <div>
-        <img src={img} width={300} height={300} alt={title} />
+        <img src={img} width={300} height={300} alt={"Zapatos ultra model 2022"} />
       </div>
       <div>
-        <p>Descripción: {description}</p>
+      <p>Descripción:<strong>{description}</strong></p>
       </div>
-      <div>Precio: {price}</div>
+      <div>Precio: <strong>{price}</strong></div>
+
+
+
+
+      
       <ItemCount
         onChangeCount={(event) => handlerCount(event)}
         onClickAddCart={(event) => handlerAddOrder(event)}
@@ -65,9 +73,3 @@ export default ItemDetail;
 
 
 
-/*
-createOrder(item).then((resultadoPro) => { // aqui podemos ver que con el then, utilizamos la estructura de promesa que se ejecuta cuando la funcion create order se ejecuta correctamente, el resutlado de la promesa se almacena en el parametro resultadoPro
-  alert(`la orden que se ha generado ha sido: ${resultadoPro}`);
-  console.log(resultadoPro);
-});
-};*/

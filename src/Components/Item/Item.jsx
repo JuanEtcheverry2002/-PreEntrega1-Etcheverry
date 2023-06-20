@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import "./Item.css";
 
 
-export const Item = ({id, img, stock , title , description ,price }) => {
+export const Item = ({id, img, stock , title , description ,price}) => {
+  console.log({ img, description, title, stock, price, id })
 
   return (
     <Card className="item">
@@ -22,3 +23,5 @@ export const Item = ({id, img, stock , title , description ,price }) => {
     </Card>
   );
 };
+
+
