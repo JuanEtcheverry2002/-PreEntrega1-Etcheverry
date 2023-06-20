@@ -3,11 +3,12 @@ import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 import { createOrder, updateOrder } from "../../services/firebase/firebaseConfig";
+import "./ItemDetail.css"
 
 const ItemDetail = ({}) => {
   const { addProduct } = useContext(CartContext);
   const { state } = useLocation();
-  const { img, description, stock, price, title, id } = state;
+  const { image, description, stock, price, title, id } = state;
 
   const handlerCount = (count) => {
     addProduct(count);
@@ -18,7 +19,7 @@ const ItemDetail = ({}) => {
       title: title,
       price: price,
       total: count * price,
-      img: img,
+      image: image,
     };
 
     createOrder(item)
@@ -38,11 +39,11 @@ const ItemDetail = ({}) => {
   return (
     <div className="item-detail">
       <h1>{title}</h1>
-      <h4>Te presentamos el nuevo modelo de: {title}
+      <h4>Te presentamos el nuevo modelo de:{title}
       </h4>
       <h5> Si la imagen no se carga puedes buscar el nombre en internet y te aparecera el modelo que vendemos</h5>
       <div>
-        <img src={img} width={300} height={300} alt={"Zapatos ultra model 2022"} />
+        <img src={image} width={300} height={300} alt={"Zapatos ultra model 2022"} />
       </div>
       <div>
       <p>Descripción:<strong>{description}</strong></p>
