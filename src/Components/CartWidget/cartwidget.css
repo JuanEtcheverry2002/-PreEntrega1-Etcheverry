@@ -7,6 +7,10 @@
     justify-content: center;
     margin-right: 16px;
   }
+  .cart-widget-icon{
+    width: 30px;
+    height: 30px;
+  }
   
   
   .cart-widget__total-shopping {

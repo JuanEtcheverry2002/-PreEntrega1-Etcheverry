@@ -8,7 +8,8 @@ export const ItemList = ({listaProdu}) => {
         console.log("prod 1", productos)
         return (
           <Item
-            key={i}
+            key={productos.id}
+            id={productos.id}
             image={productos.image}
             stock={productos.stock}
             title={productos.title}

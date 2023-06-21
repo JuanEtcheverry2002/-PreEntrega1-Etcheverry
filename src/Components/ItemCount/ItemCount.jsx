@@ -2,17 +2,17 @@ import Button from "react-bootstrap/Button";
 import "./ItemCount.css";
 import { useCount } from "./Hook/useCount";
 
-const ItemCount = ({maxCount,onChangeCount,onClickAddCart,onClickUpdateCart }) => {
+const ItemCount = ({ maxCount, onChangeCount, onClickAddCart, onClickUpdateCart }) => {
   const { count, decrement, increment } = useCount(1, 1, maxCount);
 
-  const handlerClick=()=>{
-    increment()
-    onChangeCount(count)
-  }
+  const handlerClick = () => {
+    increment();
+    onChangeCount(count);
+  };
 
-  const handlerAddCart=()=>{
-    onClickAddCart(count)
-  }
+  const handlerAddCart = () => {
+    onClickAddCart(count);
+  };
 
   return (
     <div className="item-count">
@@ -22,8 +22,8 @@ const ItemCount = ({maxCount,onChangeCount,onClickAddCart,onClickUpdateCart }) =
           variant="outline-dark"
           size="sm"
           onClick={handlerClick}
-        >     +
-        
+        >
+          +
         </Button>
         <p className="item-count__container__text">{count}</p>
         <Button
@@ -45,14 +45,9 @@ const ItemCount = ({maxCount,onChangeCount,onClickAddCart,onClickUpdateCart }) =
         >
           Agregar al carrito
         </Button>
-
-
-
-
-
       </div>
     </div>
   );
 };
 
-export default ItemCount
+export default ItemCount;

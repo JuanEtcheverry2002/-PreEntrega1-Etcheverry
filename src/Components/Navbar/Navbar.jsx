@@ -15,11 +15,12 @@ const Navbar=()=>{
         <Link to={"/"}>Catalogo</Link>
         <Link to={"/category/1"}>Acerca Nuestro</Link>
         <Link to= {"/category/2"}>Contacto</Link>
+        <Link to={"/cart"}><CartWidget/></Link>
 
         
       </div>
 
-      <CartWidget />
+      
     </div>
 )
 } 

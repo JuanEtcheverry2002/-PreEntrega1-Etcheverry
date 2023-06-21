@@ -14,9 +14,6 @@ export const Item = ({id, image, stock , title , description ,price}) => {
       <Card.Body>
 
         <Card.Title>{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-        <Card.Text>Stock: {stock}</Card.Text>
-        <Card.Footer>Precio: {price}</Card.Footer>
         <Button variant="blue">
           <Link to={`/item/${id}`} state={{id, image, stock , title , description ,price }}> Ver detalles del producto</Link>
         </Button>
