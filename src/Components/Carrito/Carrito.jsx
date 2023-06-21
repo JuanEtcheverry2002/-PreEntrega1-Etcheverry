@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 import './Carrito.css'
+import { CarritoItem } from "../CarritoItem";
 
-const Carrito = () => {
+export const Carrito = () => {
   const { cart, clearCart, obQuantity, removeItem, totalQuantity } = useContext(CartContext);
 
   if (obQuantity() === 0) {
@@ -24,7 +25,7 @@ const Carrito = () => {
         </div>
       ))}
       
-      <h3>Total: {total()}</h3>
+      <h3>Total: {totalQuantity()}</h3>
 
       <button onClick={() => clearCart()} className="Button">Limpiar Carrito</button>
       <Link to="/checkout" className="'Option">Checkout</Link>
@@ -32,4 +33,4 @@ const Carrito = () => {
   );
 };
 
-export default Carrito;
+

@@ -1,2 +1,1 @@
-import Carrito from "./Carrito";
-export default Carrito
+export  {Carrito} from "./Carrito";

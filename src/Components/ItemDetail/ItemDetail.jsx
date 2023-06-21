@@ -6,19 +6,19 @@ import { createOrder, updateOrder } from "../../services/firebase/firebaseConfig
 import "./ItemDetail.css"
 
 const ItemDetail = ({}) => {
-  const { addProduct } = useContext(CartContext);
+  const {addItem}=useContext(CartContext)
   const { state } = useLocation();
-  const { image, description, stock, price, title, id } = state;
+  const { image, description, stock, price, title, id } = state ?? {};
+
 
   const handlerCount = (count) => {
-    addProduct(count);
+    addItem(count)
   };
 
   const handlerAddOrder = (count) => {
     const item = {
       title: title,
       price: price,
-      total: count * price,
       image: image,
     };
 
