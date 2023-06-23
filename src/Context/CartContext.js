@@ -35,7 +35,7 @@ export const CartContextProvider = ({ children }) => {
 
   const obQuantity = () => {
     let count = 0;
-    state.cart.forEach((item) => (count += item.quantity));
+    state.cart.forEach((item) => (count += 1));
     return count;
   };
 
@@ -43,7 +43,7 @@ export const CartContextProvider = ({ children }) => {
     if (!isInCart(item.id)) {
       dispatch({
         type: "ADD_ITEM",
-        payload: { ...item, quantity },
+        payload: { ...item, item },
       });
     } else {
       console.error("El producto ya fue agregado.");
